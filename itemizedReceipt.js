@@ -3,6 +3,22 @@
 // i.e. {descr: 'Coke', price: 1.99}
 // function should log each item to the console and log a total price
 
+const logReceipt = (...items) => {
+  let total = 0;
+  let taxRate = 0.095;
+  let tax = 0;
+  items.forEach((item)=>{
+      total += item.price;
+      console.log(`${item.descr} - $${item.price}`);
+  });
+  console.log(`-----------------`);
+  console.log(`Subtotal: $${total}`);
+  tax = (total * taxRate);
+  console.log(`Tax (${(taxRate * 100)}%): $${parseFloat(tax).toFixed(2)}`);
+  console.log(`-----------------`);
+  total += tax;
+  console.log(`Total: $${parseFloat(total).toFixed(2)}`);
+}
 
 
 // Check
